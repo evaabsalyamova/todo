@@ -1,7 +1,12 @@
 import React from "react";
+import Header from "./components/Header";
 
-function App() {
-  return <div></div>;
-}
+const App: React.FunctionComponent = () => {
+  return (
+    <div>
+      <Header />
+    </div>
+  );
+};
 
 export default App;

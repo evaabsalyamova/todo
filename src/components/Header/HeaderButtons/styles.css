@@ -1,0 +1,13 @@
+.headerButtons {
+  position: absolute;
+  display: flex;
+  right: 10px;
+}
+
+.headerButton {
+  margin-left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkgray;
+}
