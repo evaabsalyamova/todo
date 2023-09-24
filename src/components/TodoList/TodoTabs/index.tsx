@@ -1,3 +1,5 @@
+import "./styles.css";
+
 const TodoTabs: React.FunctionComponent = () => {
   return (
     <div className="todoTabs">

@@ -1,6 +1,7 @@
 import { TodoStatus } from "../../types/todo";
 import TodoItem from "./TodoItem";
 import TodoTabs from "./TodoTabs";
+import "./styles.css";
 
 const TodoList: React.FunctionComponent = () => {
   const todos = [

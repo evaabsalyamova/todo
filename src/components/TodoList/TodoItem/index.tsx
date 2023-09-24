@@ -1,4 +1,5 @@
 import { ITodo } from "../../../types/todo";
+import "./styles.css";
 
 interface IProps {
   todo: ITodo;
