@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { addTodo, useAppDispatch, useAppSelector } from "../../redux";
+import { useAppSelector } from "../../redux";
 import TodoItem from "./TodoItem";
 import TodoTabs from "./TodoTabs";
 import "./styles.css";
+import AddTodoBlock from "./AddTodoBlock";
 
 const TodoList: React.FunctionComponent = () => {
   const [shouldShowAddTodoBlock, setShouldShowAddTodoBlock] =
     useState<boolean>(false);
-  const [currentText, setCurrentText] = useState<string>("");
-
-  const dispatch = useAppDispatch();
 
   const todoList = useAppSelector((state) => state.todoList);
 
@@ -19,21 +17,7 @@ const TodoList: React.FunctionComponent = () => {
       <div className="todoListBlock">
         <TodoTabs setShouldShowAddTodoBlock={setShouldShowAddTodoBlock} />
         {shouldShowAddTodoBlock ? (
-          <div>
-            <input
-              onChange={(text) => setCurrentText(text.target.value)}
-              value={currentText}
-            />
-            <button
-              onClick={() => {
-                dispatch(addTodo({ id: 2, isReady: false, text: currentText }));
-                setCurrentText("");
-                setShouldShowAddTodoBlock(false);
-              }}
-            >
-              ADD
-            </button>
-          </div>
+          <AddTodoBlock setShouldShowAddTodoBlock={setShouldShowAddTodoBlock} />
         ) : (
           <div className="todoItemsBlock">
             {todoList.map((todo) => (

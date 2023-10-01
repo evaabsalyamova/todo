@@ -3,7 +3,7 @@ import { ITodo } from "../types/todo";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 
 interface IAddTodoAction {
-  payload: ITodo;
+  payload: { todoText: string };
   type: string;
 }
 
@@ -19,7 +19,11 @@ const todoListSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action: IAddTodoAction) => {
-      state.push(action.payload);
+      state.push({
+        text: action.payload.todoText,
+        isReady: false,
+        id: Math.floor(Math.random() * 100),
+      });
     },
     removeAllTodo: () => {
       return [];
