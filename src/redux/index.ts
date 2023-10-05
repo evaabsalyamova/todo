@@ -2,6 +2,11 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { ITodo } from "../types/todo";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 
+interface IAddInitialTodosAction {
+  payload: ITodo[];
+  type: string;
+}
+
 interface IAddTodoAction {
   payload: { todoText: string };
   type: string;
@@ -18,6 +23,9 @@ const todoListSlice = createSlice({
   name: "todoList",
   initialState,
   reducers: {
+    addInitialTodos: (state, action: IAddInitialTodosAction) => {
+      return action.payload;
+    },
     addTodo: (state, action: IAddTodoAction) => {
       state.push({
         text: action.payload.todoText,
@@ -40,8 +48,13 @@ const todoListSlice = createSlice({
   },
 });
 
-export const { addTodo, removeAllTodo, clearReadyTodo, markTodoAsReady } =
-  todoListSlice.actions;
+export const {
+  addTodo,
+  removeAllTodo,
+  clearReadyTodo,
+  markTodoAsReady,
+  addInitialTodos,
+} = todoListSlice.actions;
 
 export const store = configureStore({
   reducer: {
