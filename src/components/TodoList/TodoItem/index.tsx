@@ -1,3 +1,4 @@
+import { icons } from "../../../assets/icons";
 import { ITodo } from "../../../types/todo";
 import "./styles.css";
 
@@ -10,9 +11,8 @@ const TodoItem: React.FunctionComponent<IProps> = ({ todo }) => {
     <div className="todoItem">
       <div className="textBlock">{todo.text}</div>
       <div className="todoItemButtons">
-        <button className="todoItemButton">=</button>
-        <button className="todoItemButton">=</button>
-        <button className="todoItemButton">=</button>
+        <div className="todoItemButton">{icons.checkMark}</div>
+        <div className="todoItemButton">{icons.trash}</div>
       </div>
     </div>
   );
