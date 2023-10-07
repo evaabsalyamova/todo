@@ -12,6 +12,11 @@ interface IAddTodoAction {
   type: string;
 }
 
+interface IDeleteTodoAction {
+  payload: { id: number };
+  type: string;
+}
+
 interface IMarkTodoAsReadyAction {
   payload: { id: number };
   type: string;
@@ -32,6 +37,9 @@ const todoListSlice = createSlice({
         isReady: false,
         id: Math.floor(Math.random() * 100),
       });
+    },
+    deleteTodo: (state, action: IDeleteTodoAction) => {
+      return state.filter((todo) => todo.id !== action.payload.id);
     },
     removeAllTodo: () => {
       return [];
@@ -54,6 +62,7 @@ export const {
   clearReadyTodo,
   markTodoAsReady,
   addInitialTodos,
+  deleteTodo,
 } = todoListSlice.actions;
 
 export const store = configureStore({
