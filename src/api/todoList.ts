@@ -12,3 +12,10 @@ export const getTodos = async () => {
 
   return response;
 };
+
+export const sendDeleteTodo = ({ id }: { id: number }) => {
+  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    method: "DELETE",
+    headers,
+  });
+};
