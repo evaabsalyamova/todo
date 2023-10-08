@@ -16,3 +16,7 @@
    width: 55px;
    justify-content: space-between;
 }
+
+.readyTextBlock {
+   background-color: aqua;
+}

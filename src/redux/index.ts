@@ -17,7 +17,7 @@ interface IDeleteTodoAction {
   type: string;
 }
 
-interface IMarkTodoAsReadyAction {
+interface IToggleTodoReadyAction {
   payload: { id: number };
   type: string;
 }
@@ -47,10 +47,10 @@ const todoListSlice = createSlice({
     clearReadyTodo: (state) => {
       return state.filter((todo) => !todo.isReady);
     },
-    markTodoAsReady: (state, action: IMarkTodoAsReadyAction) => {
+    toggleTodoReady: (state, action: IToggleTodoReadyAction) => {
       const todoById = state.find((todo) => todo.id === action.payload.id);
       if (todoById) {
-        todoById.isReady = true;
+        todoById.isReady = !todoById.isReady;
       }
     },
   },
@@ -60,7 +60,7 @@ export const {
   addTodo,
   removeAllTodo,
   clearReadyTodo,
-  markTodoAsReady,
+  toggleTodoReady,
   addInitialTodos,
   deleteTodo,
 } = todoListSlice.actions;

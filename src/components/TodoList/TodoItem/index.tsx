@@ -1,6 +1,6 @@
 import { sendDeleteTodo } from "../../../api/todoList";
 import { icons } from "../../../assets/icons";
-import { deleteTodo, useAppDispatch } from "../../../redux";
+import { deleteTodo, toggleTodoReady, useAppDispatch } from "../../../redux";
 import { ITodo } from "../../../types/todo";
 import "./styles.css";
 
@@ -16,11 +16,19 @@ const TodoItem: React.FunctionComponent<IProps> = ({ todo }) => {
     sendDeleteTodo({ id: todo.id });
   };
 
+  const handleReadyTodoClick = (): void => {
+    dispatch(toggleTodoReady({ id: todo.id }));
+  };
+
   return (
     <div className="todoItem">
-      <div className="textBlock">{todo.text}</div>
+      <div className={todo.isReady ? "readyTextBlock" : "textBlock"}>
+        {todo.text}
+      </div>
       <div className="todoItemButtons">
-        <div className="todoItemButton">{icons.checkMark}</div>
+        <div className="todoItemButton" onClick={handleReadyTodoClick}>
+          {todo.isReady ? icons.readyCheckMark : icons.checkMark}
+        </div>
         <div className="todoItemButton" onClick={handleDeleteButtonClick}>
           {icons.trash}
         </div>
