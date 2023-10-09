@@ -1,0 +1,17 @@
+.addTodoBlockContainer {
+   display: flex;
+   margin-top: 10px;
+   flex-direction: column;
+   width: 700px;
+}
+
+
+.addBlockInputTitle {
+   width: 200px;
+
+}
+
+.addBlockText {
+   width: 400px;
+   height: 75px;
+}

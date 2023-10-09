@@ -22,6 +22,7 @@ const TodoItem: React.FunctionComponent<IProps> = ({ todo }) => {
 
   return (
     <div className="todoItem">
+      <div className="todoTitle">{todo.title}</div>
       <div className={todo.isReady ? "readyTextBlock" : "textBlock"}>
         {todo.text}
       </div>

@@ -2,6 +2,7 @@ export interface ITodo {
   text: string;
   id: number;
   isReady: boolean;
+  title: string;
 }
 
 export interface IExternalTodo {
@@ -12,7 +13,8 @@ export interface IExternalTodo {
 }
 
 export const todosMapper = (externalTodo: IExternalTodo): ITodo => ({
-  text: externalTodo.title,
+  text: externalTodo.body,
   id: externalTodo.id,
   isReady: false,
+  title: externalTodo.title,
 });

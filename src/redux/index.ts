@@ -8,7 +8,7 @@ interface IAddInitialTodosAction {
 }
 
 interface IAddTodoAction {
-  payload: { todoText: string };
+  payload: { todoText: string; todoTitle: string };
   type: string;
 }
 
@@ -36,6 +36,7 @@ const todoListSlice = createSlice({
         text: action.payload.todoText,
         isReady: false,
         id: Math.floor(Math.random() * 100),
+        title: action.payload.todoTitle,
       });
     },
     deleteTodo: (state, action: IDeleteTodoAction) => {
