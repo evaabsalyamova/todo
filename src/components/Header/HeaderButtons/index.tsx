@@ -4,8 +4,8 @@ import "./styles.css";
 const HeaderButtons: React.FunctionComponent = () => {
   return (
     <div className="headerButtons">
-      <button className="headerButton">{icons.settings}</button>
-      <button className="headerButton">{icons.lightMode}</button>
+      <div className="headerButton">{icons.settings}</div>
+      <div className="headerButton">{icons.lightMode}</div>
     </div>
   );
 };
