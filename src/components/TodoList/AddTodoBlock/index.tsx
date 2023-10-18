@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { addTodo, useAppDispatch } from "../../../redux";
 import "./styles.css";
+import { sendNewTodo } from "../../../api/todoList";
 
 interface IProps {
   setShouldShowAddTodoBlock: React.Dispatch<React.SetStateAction<boolean>>;
@@ -36,6 +37,8 @@ const AddTodoBlock: React.FunctionComponent<IProps> = ({
               dispatch(
                 addTodo({ todoText: currentText, todoTitle: currentTitle })
               );
+              sendNewTodo({ title: currentTitle, body: currentText });
+
               setShouldShowAddTodoBlock(false);
             }
           }}
