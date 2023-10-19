@@ -1,21 +1,16 @@
 import { useState } from "react";
-import { sendDeleteTodo, sendTodoUpdates } from "../../../api/todoList";
+import { sendDeleteTodo } from "../../../api/todoList";
 import { icons } from "../../../assets/icons";
-import {
-  changeTextTodo,
-  deleteTodo,
-  toggleTodoReady,
-  useAppDispatch,
-} from "../../../redux";
+import { deleteTodo, toggleTodoReady, useAppDispatch } from "../../../redux";
 import { ITodo } from "../../../types/todo";
 import "./styles.css";
+import TodoForm from "../TodoForm";
 
 interface IProps {
   todo: ITodo;
 }
 
 const TodoItem: React.FunctionComponent<IProps> = ({ todo }) => {
-  const [newText, setNewText] = useState<string>(todo.text);
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
@@ -29,34 +24,19 @@ const TodoItem: React.FunctionComponent<IProps> = ({ todo }) => {
     dispatch(toggleTodoReady({ id: todo.id }));
   };
 
-  const handleSaveButtonClick = (): void => {
-    if (newText !== todo.text) {
-      dispatch(changeTextTodo({ id: todo.id, text: newText }));
-
-      sendTodoUpdates({ todo: { ...todo, text: newText } });
-    }
-
-    setIsEditMode(false);
-  };
-
   return (
     <div className="todoItem">
       <div className="todoItemBlock">
-        <div className="todoTitle">{todo.title}</div>
         {isEditMode ? (
-          <div>
-            <input
-              className="changeTextBlock"
-              onChange={(text) => setNewText(text.target.value)}
-              value={newText}
-              placeholder="Enter text"
-            />
-            <button onClick={handleSaveButtonClick}>SAVE</button>
-          </div>
+          <TodoForm onFinish={() => setIsEditMode(false)} todo={todo} />
         ) : (
-          <div className={todo.isReady ? "readyTextBlock" : "textBlock"}>
-            {todo.text}
-          </div>
+          <>
+            <div className="todoTitle">{todo.title}</div>
+
+            <div className={todo.isReady ? "readyTextBlock" : "textBlock"}>
+              {todo.text}
+            </div>
+          </>
         )}
       </div>
 

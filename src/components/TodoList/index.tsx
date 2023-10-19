@@ -3,7 +3,7 @@ import { useAppSelector } from "../../redux";
 import TodoItem from "./TodoItem";
 import TodoTabs from "./TodoTabs";
 import "./styles.css";
-import AddTodoBlock from "./AddTodoBlock";
+import TodoForm from "./TodoForm";
 
 const TodoList: React.FunctionComponent = () => {
   const [shouldShowAddTodoBlock, setShouldShowAddTodoBlock] =
@@ -17,7 +17,7 @@ const TodoList: React.FunctionComponent = () => {
       <div className="todoListBlock">
         <TodoTabs setShouldShowAddTodoBlock={setShouldShowAddTodoBlock} />
         {shouldShowAddTodoBlock ? (
-          <AddTodoBlock setShouldShowAddTodoBlock={setShouldShowAddTodoBlock} />
+          <TodoForm onFinish={() => setShouldShowAddTodoBlock(false)} />
         ) : (
           <div className="todoItemsBlock">
             {todoList.map((todo) => (
