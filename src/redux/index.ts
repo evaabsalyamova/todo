@@ -22,8 +22,8 @@ interface IToggleTodoReadyAction {
   type: string;
 }
 
-interface IChangeTextTodoAction {
-  payload: { id: number; text: string };
+interface IUpdateTodoAction {
+  payload: { id: number; text: string; title: string };
   type: string;
 }
 
@@ -60,12 +60,13 @@ const todoListSlice = createSlice({
       }
     },
 
-    changeTextTodo: (state, action: IChangeTextTodoAction) => {
+    updateTodo: (state, action: IUpdateTodoAction) => {
       const changedTodoById = state.find(
         (todo) => todo.id === action.payload.id
       );
       if (changedTodoById) {
         changedTodoById.text = action.payload.text;
+        changedTodoById.title = action.payload.title;
       }
     },
   },
@@ -78,7 +79,7 @@ export const {
   toggleTodoReady,
   addInitialTodos,
   deleteTodo,
-  changeTextTodo,
+  updateTodo,
 } = todoListSlice.actions;
 
 export const store = configureStore({
