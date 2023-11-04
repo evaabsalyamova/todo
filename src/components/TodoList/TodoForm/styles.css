@@ -1,17 +1,35 @@
 .addTodoBlockContainer {
    display: flex;
-   margin-top: 10px;
+   /* margin-top: 10px; */
    flex-direction: column;
-   width: 700px;
+   width: 450px;
+   height: 125px;
+   justify-content: space-between;
 }
 
 
 .addBlockInputTitle {
-   width: 200px;
+   width: 250px;
+   height: 22px;
+   outline: none;
+   border: 1px solid transparent;
+   border-radius: 12px;
 
 }
 
 .addBlockText {
-   width: 400px;
-   height: 75px;
+   width: 430px;
+   height: 65px;
+   border: 1px solid transparent;
+   border-radius: 16px;
+}
+
+.addTodoButtonContainer {
+   margin-left: 2px;
+   border-radius: 10px;
+   border: 1px solid transparent;
+}
+
+.addTodoButtonContainer:hover {
+   background-color: rgba(0, 0, 0, 0.215);
 }

@@ -55,13 +55,17 @@ const TodoForm: React.FunctionComponent<IProps> = ({ onFinish, todo }) => {
         value={newText}
         placeholder="Enter text"
       />
-      <div className="addTodoButtonContainer">
-        <button onClick={handleSubmitButtonClick}>
+      <div>
+        <button
+          className="addTodoButtonContainer"
+          onClick={handleSubmitButtonClick}
+        >
           {editMode ? "SAVE" : "ADD"}
         </button>
 
         {!editMode && (
           <button
+            className="addTodoButtonContainer"
             onClick={() => {
               setNewText("");
 
