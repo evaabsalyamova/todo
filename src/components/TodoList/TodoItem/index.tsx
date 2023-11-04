@@ -26,34 +26,33 @@ const TodoItem: React.FunctionComponent<IProps> = ({ todo }) => {
 
   return (
     <div className="todoItem">
-      <div className="todoItemBlock">
-        {isEditMode ? (
-          <TodoForm onFinish={() => setIsEditMode(false)} todo={todo} />
-        ) : (
-          <>
+      {isEditMode ? (
+        <TodoForm onFinish={() => setIsEditMode(false)} todo={todo} />
+      ) : (
+        <>
+          <div className="todoItemHeader">
             <div className="todoTitle">{todo.title}</div>
-
-            <div className={todo.isReady ? "readyTextBlock" : "textBlock"}>
-              {todo.text}
+            <div className="todoItemButtons">
+              <div className="todoItemButton" onClick={handleReadyTodoClick}>
+                {todo.isReady ? icons.readyCheckMark : icons.checkMark}
+              </div>
+              <div className="todoItemButton" onClick={handleDeleteButtonClick}>
+                {icons.trash}
+              </div>
+              <div
+                className="todoItemButton"
+                onClick={() => setIsEditMode(!isEditMode)}
+              >
+                {icons.todoSettings}
+              </div>
             </div>
-          </>
-        )}
-      </div>
+          </div>
 
-      <div className="todoItemButtons">
-        <div className="todoItemButton" onClick={handleReadyTodoClick}>
-          {todo.isReady ? icons.readyCheckMark : icons.checkMark}
-        </div>
-        <div className="todoItemButton" onClick={handleDeleteButtonClick}>
-          {icons.trash}
-        </div>
-        <div
-          className="todoItemButton"
-          onClick={() => setIsEditMode(!isEditMode)}
-        >
-          {icons.todoSettings}
-        </div>
-      </div>
+          <div className={todo.isReady ? "readyTextBlock" : "textBlock"}>
+            {todo.text}
+          </div>
+        </>
+      )}
     </div>
   );
 };
