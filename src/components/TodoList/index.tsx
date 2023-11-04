@@ -13,19 +13,16 @@ const TodoList: React.FunctionComponent = () => {
 
   return (
     <div className="todoListContainer">
-      <div className="todoListTitle">Todo List</div>
-      <div className="todoListBlock">
-        <TodoTabs setShouldShowAddTodoBlock={setShouldShowAddTodoBlock} />
-        {shouldShowAddTodoBlock ? (
-          <TodoForm onFinish={() => setShouldShowAddTodoBlock(false)} />
-        ) : (
-          <div className="todoItemsBlock">
-            {todoList.map((todo) => (
-              <TodoItem todo={todo} />
-            ))}
-          </div>
-        )}
-      </div>
+      <TodoTabs setShouldShowAddTodoBlock={setShouldShowAddTodoBlock} />
+      {shouldShowAddTodoBlock ? (
+        <TodoForm onFinish={() => setShouldShowAddTodoBlock(false)} />
+      ) : (
+        <div className="todoItemsBlock">
+          {todoList.map((todo) => (
+            <TodoItem todo={todo} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
