@@ -4,10 +4,16 @@
    justify-content: space-around;
    width: 280px;
    height: 27px;
+   margin-bottom: 20px;
 }
 
 .todoTab {
    border: 1px solid black;
    border-radius: 17px;
    padding: 7px;
+}
+
+.todoTab:hover {
+   background-color: rgb(218, 215, 215);
+
 }
