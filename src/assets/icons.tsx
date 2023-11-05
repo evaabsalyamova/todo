@@ -33,7 +33,7 @@ export const icons = {
       width="20"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1.25 1.25"
-      fill="white"
+      fill="#993434"
     >
       <path d="M1.007.366.524.848.292.616a.025.025 0 1 0-.035.035l.25.25a.025.025 0 0 0 .035 0l.5-.5a.025.025 0 1 0-.035-.035z" />
     </svg>
