@@ -6,7 +6,7 @@
    margin-bottom: 25px;
    padding: 15px;
    box-sizing: border-box;
-   background-color: rgb(247, 249, 249);
+   background-color: rgb(235, 233, 233);
 }
 
 .todoItemHeader {
@@ -25,6 +25,16 @@
    display: flex;
    width: 55px;
    justify-content: space-between;
+}
+
+.todoItemButton {
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+}
+
+.todoItemButton:hover {
+   background-color: rgb(218, 215, 215);
 }
 
 .readyTextBlock {
