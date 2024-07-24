@@ -3,17 +3,18 @@
    align-items: center;
    justify-content: space-around;
    width: 280px;
-   height: 27px;
-   margin-bottom: 20px;
+   height: 45px;
 }
 
 .todoTab {
-   border: 1px solid black;
+   font-size: 14px;
+   border: 1px solid transparent;
    border-radius: 17px;
    padding: 7px;
+   background-color: #f0f0f9;
 }
 
 .todoTab:hover {
-   background-color: rgb(218, 215, 215);
+   background-color: #e8e8ef;
 
 }

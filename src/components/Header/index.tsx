@@ -3,7 +3,7 @@ import "./styles.css";
 const Header: React.FunctionComponent = () => {
   return (
     <div className="container">
-      <span>Todo List</span>
+      <span>Your notes</span>
     </div>
   );
 };

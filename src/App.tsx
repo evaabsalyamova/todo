@@ -4,6 +4,7 @@ import TodoList from "./components/TodoList";
 import { getTodos } from "./api/todoList";
 import { todosMapper } from "./types/todo";
 import { addInitialTodos, useAppDispatch } from "./redux";
+import "./App.css";
 
 const App: React.FunctionComponent = () => {
   const dispatch = useAppDispatch();
@@ -18,7 +19,7 @@ const App: React.FunctionComponent = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="appContainer">
       <Header />
       <TodoList />
     </div>

@@ -2,11 +2,11 @@
    width: 500px;
    height: 150px;
    border: 1px solid black;
-   border-radius: 27px;
+   border-radius: 22px;
    margin-bottom: 25px;
    padding: 15px;
    box-sizing: border-box;
-   background-color: rgb(235, 233, 233);
+   background-color: #f0f0f9;
 }
 
 .todoItemHeader {
@@ -34,7 +34,7 @@
 }
 
 .todoItemButton:hover {
-   background-color: rgb(218, 215, 215);
+   background-color: #e8e8ef;
 }
 
 .readyTextBlock {
